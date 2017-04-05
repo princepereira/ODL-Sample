@@ -1,0 +1,13 @@
+This contains RPC Service implemented in Boron with blueprint.xml support
+
+Ref : http://docs.opendaylight.org/en/stable-boron/developer-guide/developing-apps-on-the-opendaylight-controller.html
+
+Archetype : mvn archetype:generate -DarchetypeGroupId=org.opendaylight.controller -DarchetypeArtifactId=opendaylight-startup-archetype \
+-DarchetypeRepository=https://nexus.opendaylight.org/content/repositories/opendaylight.release \
+-DarchetypeCatalog=http://nexus.opendaylight.org/content/repositories/opendaylight.release/archetype-catalog.xml \
+-DarchetypeVersion=1.2.0-Boron
+
+Start the hello world : ./<ROOT>/karaf/target/assembly/bin/karaf clean
+
+
+REST to Test : curl -u admin:admin -H 'Content-Type: application/json' -X POST -d '{ "input": { "name": "prince" } }' http://127.0.0.1:8181/restconf/operations/hello:hello-world
